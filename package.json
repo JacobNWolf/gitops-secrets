@@ -1,10 +1,22 @@
 {
-	"name": "gitops-secrets",
-	"version": "0.0.1",
-	"description": "Easily and securely inject environment variable secrets—no matter the size—into any JavaScript runtime.",
-	"main": "index.js",
-	"scripts": {},
-	"keywords": [],
-	"author": "Jacob Wolf",
-	"license": "MIT"
+   "name": "gitops-secrets",
+   "version": "0.0.1",
+   "description": "Easily and securely inject environment variable secrets—no matter the size—into any JavaScript runtime.",
+   "main": "index.js",
+   "scripts": {
+      "lint": "biome check --write .",
+      "format": "biome format --write .",
+      "build": "tsup",
+      "test": "vitest"
+   },
+   "keywords": [],
+   "author": "Jacob Wolf",
+   "license": "MIT",
+   "packageManager": "pnpm@9.15.5+sha512.845196026aab1cc3f098a0474b64dfbab2afe7a1b4e91dd86895d8e4aa32a7a6d03049e2d0ad770bbe4de023a7122fb68c1a1d6e0d033c7076085f9d5d4800d4",
+   "devDependencies": {
+      "@biomejs/biome": "1.9.4",
+      "tsup": "^8.4.0",
+      "typescript": "^5.8.2",
+      "vitest": "^3.0.9"
+   }
 }
