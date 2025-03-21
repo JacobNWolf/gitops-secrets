@@ -1,7 +1,7 @@
 {
 	"name": "gitops-secrets",
 	"version": "0.0.1",
-	"description": "",
+	"description": "Easily and securely inject environment variable secrets—no matter the size—into any JavaScript runtime.",
 	"main": "index.js",
 	"scripts": {},
 	"keywords": [],

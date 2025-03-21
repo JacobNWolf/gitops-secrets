@@ -1,0 +1,2 @@
+# GitOps Secrets
+Easily and securely inject environment variable secrets—no matter the size—into any JavaScript runtime. Unlock the ability to bypass AWS Lambda, Vercel, and Netlify's 4KB environment variable limit and run on the edge in environments like Deno, Bun, and others where NodeJS built-in modules are not available.
