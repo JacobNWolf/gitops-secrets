@@ -12,7 +12,7 @@
       "lint": "biome check --write .",
       "format": "biome format --write .",
       "build": "tsup",
-      "test": "vitest",
+      "test": "vitest run",
       "prepublishOnly": "pnpm build"
    },
    "repository": {
@@ -25,6 +25,7 @@
    "packageManager": "pnpm@10.6.5",
    "devDependencies": {
       "@biomejs/biome": "1.9.4",
+      "@types/node": "^22.13.11",
       "tsup": "^8.4.0",
       "typescript": "^5.8.2",
       "vitest": "^3.0.9"
