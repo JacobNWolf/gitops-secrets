@@ -9,7 +9,12 @@
       "lint": "biome check --write .",
       "format": "biome format --write .",
       "build": "tsup",
-      "test": "vitest"
+      "test": "vitest",
+      "prepublishOnly": "pnpm build"
+   },
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/JacobNWolf/gitops-secrets"
    },
    "keywords": [],
    "author": "Jacob Wolf",

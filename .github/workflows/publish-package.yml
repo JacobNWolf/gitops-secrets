@@ -5,7 +5,7 @@ on:
         types: [created]
 
 jobs:
-    build:
+    publish:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Repository
@@ -20,6 +20,7 @@ jobs:
               with:
                 node-version: 22
                 cache: 'pnpm'
+                registry-url: 'https://registry.npmjs.org'
             - name: Build Package
               run: pnpm build
             - name: Publish Package
