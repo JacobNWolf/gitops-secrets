@@ -1,13 +1,13 @@
-name: JavaScript CI
+name: Tests
 
 on:
-    pull_request:
+    push:
         branches:
             - main
         paths:
             - '**/*.ts'
             - '**/*.js'
-    push:
+    pull_request:
         branches:
             - main
         paths:
@@ -15,7 +15,7 @@ on:
             - '**/*.js'
 
 jobs:
-    lint-ts:
+    test:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Repository
@@ -30,17 +30,5 @@ jobs:
               with:
                   node-version: 22
                   cache: 'pnpm'
-            - name: Check Types
-              run: pnpm lint:ts
-    lint-js:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Repository
-              uses: actions/checkout@v4
-            - name: Setup Biome
-              uses: biomejs/setup-biome@v2
-              with:
-                  version: 1.9.4
-            - name: Biome Check
-              run: biome ci --formatter-enabled=false
-
+            - name: Run Tests
+              run: pnpm test

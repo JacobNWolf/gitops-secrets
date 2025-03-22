@@ -13,7 +13,7 @@
       "lint:ts": "tsc --noEmit --pretty",
       "format": "biome format --write .",
       "build": "tsup",
-      "test": "vitest",
+      "test": "vitest run",
       "prepublishOnly": "pnpm build",
       "prepare": "husky"
    },
@@ -30,6 +30,7 @@
    "packageManager": "pnpm@10.6.5",
    "devDependencies": {
       "@biomejs/biome": "1.9.4",
+      "@types/node": "^22.13.11",
       "husky": "^9.1.7",
       "lint-staged": "^15.5.0",
       "tsup": "^8.4.0",
