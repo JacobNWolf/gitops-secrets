@@ -1,0 +1,40 @@
+name: JavaScript CI
+
+on:
+    pull_request:
+        branches:
+            - main
+    push:
+        branches:
+            - main
+
+jobs:
+    lint-ts:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10.6.5
+                  run_install: true
+            - name: Install Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: 'pnpm'
+            - name: Check Types
+              run: pnpm lint:ts
+    lint-js:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+            - name: Setup Biome
+              uses: biomejs/setup-biome@v2
+              with:
+                  version: 1.9.4
+            - name: Biome Check
+              run: biome ci --formatter-enabled=false --changed
+

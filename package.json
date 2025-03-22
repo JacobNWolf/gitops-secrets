@@ -9,11 +9,16 @@
       "access": "public"
    },
    "scripts": {
-      "lint": "biome check --write .",
+      "lint:js": "biome check --write .",
+      "lint:ts": "tsc --noEmit --pretty",
       "format": "biome format --write .",
       "build": "tsup",
       "test": "vitest",
-      "prepublishOnly": "pnpm build"
+      "prepublishOnly": "pnpm build",
+      "prepare": "husky"
+   },
+   "lint-staged": {
+      "*.{js,ts}": ["pnpm lint:js"]
    },
    "repository": {
       "type": "git",
@@ -25,6 +30,8 @@
    "packageManager": "pnpm@10.6.5",
    "devDependencies": {
       "@biomejs/biome": "1.9.4",
+      "husky": "^9.1.7",
+      "lint-staged": "^15.5.0",
       "tsup": "^8.4.0",
       "typescript": "^5.8.2",
       "vitest": "^3.0.9"
