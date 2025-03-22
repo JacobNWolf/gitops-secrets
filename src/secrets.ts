@@ -1,5 +1,5 @@
-import { base64ToUint8Array, uint8ArrayToBase64 } from './utils';
 import { type EnvObject, EnvTarget } from './types';
+import { base64ToUint8Array, uint8ArrayToBase64 } from './utils';
 
 const PBKDF2_ROUNDS = process.env.GITOPS_SECRETS_PBKDF2_ROUNDS || 1000000;
 const PBKDF2_KEYLEN = 32;
@@ -112,7 +112,7 @@ async function decrypt(ciphertext: string): Promise<string> {
       const decrypted = new TextDecoder(TEXT_ENCODING).decode(decryptedBuffer);
       return decrypted;
    } catch (error) {
-      throw new Error(`Decryption failed: ${error.message}`);
+      throw new Error(`Decryption failed: ${error instanceof Error ? error.message : String(error)}`);
    }
 }
 

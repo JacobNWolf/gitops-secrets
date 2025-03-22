@@ -42,5 +42,5 @@ jobs:
               with:
                   version: 1.9.4
             - name: Biome Check
-              run: biome ci --formatter-enabled=false --changed
+              run: biome ci --formatter-enabled=false
 
