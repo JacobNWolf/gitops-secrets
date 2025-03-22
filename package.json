@@ -4,7 +4,9 @@
    "description": "Easily and securely inject environment variable secrets—no matter the size—into any JavaScript runtime.",
    "main": "dist/index.js",
    "types": "dist/index.d.ts",
-   "files": ["dist"],
+   "files": [
+      "dist"
+   ],
    "publishConfig": {
       "access": "public"
    },
@@ -18,7 +20,9 @@
       "prepare": "husky"
    },
    "lint-staged": {
-      "*.{js,ts}": ["pnpm lint:js"]
+      "*.{js,ts}": [
+         "pnpm lint:js"
+      ]
    },
    "repository": {
       "type": "git",
@@ -33,6 +37,7 @@
       "@types/node": "^22.13.11",
       "husky": "^9.1.7",
       "lint-staged": "^15.5.0",
+      "msw": "^2.7.3",
       "tsup": "^8.4.0",
       "typescript": "^5.8.2",
       "vitest": "^3.0.9"

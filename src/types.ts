@@ -7,4 +7,6 @@ type EnvObject = {
    [key: string]: string | boolean | number | undefined | null | object;
 };
 
-export type { EnvObject };
+type Provider = 'doppler';
+
+export type { EnvObject, Provider };
