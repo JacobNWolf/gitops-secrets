@@ -1,6 +1,9 @@
 import * as doppler from './providers/doppler';
 import * as secrets from './secrets';
 
+export * from './secrets';
+export const providers = { doppler };
+
 const noFs = {
    ...secrets,
    providers: {
@@ -9,6 +12,3 @@ const noFs = {
 };
 
 export default noFs;
-
-export * from './secrets';
-export const providers = { doppler };
