@@ -4,8 +4,5 @@ import * as secretsFiles from './secrets-files';
 
 export const providers = { doppler };
 
-export default {
-   ...secrets,
-   ...secretsFiles,
-   providers,
-};
+export * as secrets from './secrets';
+export * as secretsFiles from './secrets-files';

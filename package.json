@@ -4,6 +4,18 @@
    "description": "Easily and securely inject environment variable secrets—no matter the size—into any JavaScript runtime.",
    "main": "dist/index.js",
    "types": "dist/index.d.ts",
+   "exports": {
+      ".": {
+         "import": "./dist/index.js",
+         "require": "./dist/index.js",
+         "types": "./dist/index.d.ts"
+      },
+      "./no-fs": {
+         "import": "./dist/no-fs.js",
+         "require": "./dist/no-fs.js",
+         "types": "./dist/no-fs.d.ts"
+      }
+   },
    "files": [
       "dist"
    ],
