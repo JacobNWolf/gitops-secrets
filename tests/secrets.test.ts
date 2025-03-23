@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { encrypt, decrypt, mergeSecrets, loadSecrets } from '../src/secrets';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { decrypt, encrypt, loadSecrets, mergeSecrets } from '../src/secrets';
 import { EnvTarget } from '../src/types';
 
 process.env.GITOPS_SECRETS_MASTER_KEY = 'test-master-key-16chars+';

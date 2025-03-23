@@ -123,6 +123,13 @@ async function decrypt(ciphertext: string): Promise<string> {
  * @returns {EnvObject} - The environment object
  */
 function getEnvObject(target: EnvTarget): EnvObject {
+   if (typeof import.meta === 'undefined') {
+      if (typeof process !== 'undefined' && process.env) {
+         return process.env;
+      }
+      throw new Error('process.env is not available in this environment');
+   }
+
    switch (target) {
       case EnvTarget.PROCESS:
          if (typeof process !== 'undefined' && process.env) {
@@ -134,7 +141,6 @@ function getEnvObject(target: EnvTarget): EnvObject {
             return import.meta.env;
          }
          throw new Error('import.meta.env is not available in this environment');
-
       default:
          throw new Error(`Unsupported environment target: ${target}`);
    }
@@ -150,10 +156,19 @@ function getEnvObject(target: EnvTarget): EnvObject {
 function mergeSecrets(payload: Record<string, string>, target: EnvTarget): EnvObject {
    const envObject = getEnvObject(target);
 
+   if (typeof import.meta === 'undefined') {
+      if (typeof process !== 'undefined' && process.env) {
+         for (const [key, value] of Object.entries(payload)) {
+            process.env[key] = value;
+         }
+      }
+      return envObject;
+   }
+
    for (const [key, value] of Object.entries(payload)) {
       if (target === EnvTarget.PROCESS && typeof process !== 'undefined') {
          process.env[key] = value;
-      } else if (target === EnvTarget.IMPORT_META) {
+      } else if (target === EnvTarget.IMPORT_META && typeof import.meta !== 'undefined') {
          import.meta.env[key] = value;
       }
    }
